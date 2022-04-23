@@ -5,7 +5,11 @@ import {createRouter, createWebHistory } from 'vue-router'
 import PageHome from "@/components/PageHome";
 
 const routes = [
-    { path: '/', component: PageHome}
+    {
+        path: '/',
+        name: 'Home',
+        component: PageHome
+    }
 ]
 
 const router = createRouter({
