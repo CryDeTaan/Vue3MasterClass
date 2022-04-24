@@ -55,13 +55,9 @@
 
 <script>
 import sourceData from '@/data.json'
-import BaseDate from "@/components/BaseDate";
 
 export default {
   name: "PostList",
-  components: {
-    BaseDate
-  },
 
   props: {
     posts: {

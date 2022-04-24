@@ -50,14 +50,9 @@
 
 <script>
 import sourceData from '@/data.json'
-import BaseDate from "@/components/BaseDate";
 
 export default {
   name: "ThreadList",
-  components: {
-    BaseDate
-    //
-  },
 
   props: {
     threads: {
