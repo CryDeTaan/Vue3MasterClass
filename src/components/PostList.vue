@@ -29,8 +29,8 @@
 
 
 
-      <div class="post-date text-faded" :title="humanFriendlyDateTime(post.publishedAt)">
-        {{ diffForHumans(post.publishedAt) }}
+      <div class="post-date text-faded">
+        <base-date :timestamp="post.publishedAt" />
       </div>
       <!--
       <div class="reactions">
@@ -55,11 +55,13 @@
 
 <script>
 import sourceData from '@/data.json'
-import dayjs from 'dayjs'
-import relativeTime from 'dayjs/plugin/relativeTime'
-dayjs.extend(relativeTime)
+import BaseDate from "@/components/BaseDate";
+
 export default {
   name: "PostList",
+  components: {
+    BaseDate
+  },
 
   props: {
     posts: {
@@ -78,12 +80,6 @@ export default {
     userById(userId) {
       return this.users.find(p => p.id === userId)
     },
-    diffForHumans(timestamp) {
-      return dayjs.unix(timestamp).fromNow()
-    },
-    humanFriendlyDateTime(timestamp) {
-      return dayjs.unix(timestamp)
-    }
   },
 
 }

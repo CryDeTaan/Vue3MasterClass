@@ -15,7 +15,7 @@
             </router-link>
           </p>
           <p class="text-faded text-xsmall">
-            By <a href="#">{{ userById(thread.userId).name }}</a>, {{ thread.publishedAt }}.
+            By <a href="#">{{ userById(thread.userId).name }}</a>, <base-date :timestamp="thread.publishedAt" />.
           </p>
         </div>
 
@@ -36,7 +36,9 @@
                 postById(thread.lastPostId).userId
                 ).name }}</a>
             </p>
-            <p class="text-xsmall text-faded">{{ postById(thread.lastPostId).publishedAt }}</p>
+            <p class="text-xsmall text-faded">
+              <base-date :timestamp="postById(thread.lastPostId).publishedAt" />
+            </p>
           </div>
         </div>
       </div>
@@ -48,10 +50,12 @@
 
 <script>
 import sourceData from '@/data.json'
+import BaseDate from "@/components/BaseDate";
 
 export default {
   name: "ThreadList",
   components: {
+    BaseDate
     //
   },
 
