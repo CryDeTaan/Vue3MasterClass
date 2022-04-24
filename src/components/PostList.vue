@@ -29,7 +29,7 @@
 
 
 
-      <div class="post-date text-faded">
+      <div class="post-date text-faded" :title="humanFriendlyDateTime(post.publishedAt)">
         {{ diffForHumans(post.publishedAt) }}
       </div>
       <!--
@@ -80,6 +80,9 @@ export default {
     },
     diffForHumans(timestamp) {
       return dayjs.unix(timestamp).fromNow()
+    },
+    humanFriendlyDateTime(timestamp) {
+      return dayjs.unix(timestamp)
     }
   },
 
