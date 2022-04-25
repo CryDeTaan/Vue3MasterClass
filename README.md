@@ -1,5 +1,7 @@
 # vueschool
 
+This is the project source code from the Vueschool's [Vue.js 3 Masterclass](https://vueschool.io/courses/the-vuejs-3-master-class) course.
+
 ## Project setup
 ```
 npm install
