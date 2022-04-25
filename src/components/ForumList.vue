@@ -2,7 +2,7 @@
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <a href="#">Forums</a>
+        <a href="#">{{ categoryName }}</a>
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
@@ -34,7 +34,8 @@
 
     </div>
 
-  </div></template>
+  </div>
+</template>
 
 <script>
 
@@ -44,6 +45,10 @@ export default {
     forums: {
       type: Array,
       required: true
+    },
+    categoryName: {
+      type: String,
+      default: 'Forums'
     }
   }
 }
