@@ -2,7 +2,7 @@
   <div class="col-full">
     <div class="forum-list">
       <h2 class="list-title">
-        <a href="#">{{ categoryName }}</a>
+        <router-link :to="{name: 'Category', params: { id: category.id }}">{{ category.name }}</router-link>
       </h2>
 
       <div class="forum-listing" v-for="forum in forums" :key="forum.id">
@@ -46,9 +46,9 @@ export default {
       type: Array,
       required: true
     },
-    categoryName: {
-      type: String,
-      default: 'Forums'
+    category: {
+      type: Object,
+      required: true
     }
   }
 }
