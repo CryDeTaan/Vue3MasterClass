@@ -1,22 +1,22 @@
 <template>
   <h1>Welkom hier by die forum</h1>
-  <thread-list :threads="threads" />
+  <forum-list :forums="forums" />
 </template>
 
 <script>
 import sourceData from '@/data.json'
-import threadList from "@/components/ThreadList";
+import ForumList from "@/components/ForumList";
 
 export default {
   name: "PageHome",
   components: {
-    threadList
+    ForumList
   },
 
 
   data() {
     return {
-      threads: sourceData.threads,
+      forums: sourceData.forums,
     }
   },
 
