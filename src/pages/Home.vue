@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
 import CategoryList from "@/components/CategoryList";
 
 export default {
@@ -13,10 +12,9 @@ export default {
     CategoryList,
   },
 
-
-  data() {
-    return {
-      categories: sourceData.categories,
+  computed: {
+    categories () {
+      return this.$store.state.categories
     }
   },
 

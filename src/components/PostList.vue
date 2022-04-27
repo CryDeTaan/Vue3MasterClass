@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
 
 export default {
   name: "PostList",
@@ -66,9 +65,9 @@ export default {
     },
   },
 
-  data() {
-    return {
-      users: sourceData.users,
+  computed: {
+    users () {
+      return this.$store.state.users
     }
   },
 

@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
 
 export default {
   name: "ThreadList",
@@ -61,19 +60,12 @@ export default {
     },
   },
 
-  data() {
-    return {
-      posts: sourceData.posts,
-      users: sourceData.users,
-    }
-  },
-
   methods: {
     postById(postId) {
-      return this.posts.find(p => p.id === postId)
+      return this.$store.state.posts.find(p => p.id === postId)
     },
     userById(userId) {
-      return this.users.find(p => p.id === userId)
+      return this.$store.state.users.find(p => p.id === userId)
     }
   },
 }

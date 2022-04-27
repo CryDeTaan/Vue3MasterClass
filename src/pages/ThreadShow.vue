@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
 import PostList from "@/components/PostList";
 import PostEditor from "@/components/PostEditor";
 
@@ -40,33 +39,25 @@ export default {
     }
   },
 
-  data() {
-    return {
-      threads: sourceData.threads,
-      posts: sourceData.posts,
-      users: sourceData.users,
-    }
-  },
-
   computed: {
     thread () {
-      return this.threads.find(thread => thread.id === this.id)
+      return this.$store.state.threads.find(thread => thread.id === this.id)
     },
     threadPosts () {
-      return this.posts.filter(post => post.threadId === this.id )
+      return this.$store.state.posts.filter(post => post.threadId === this.id )
     }
   },
 
   methods: {
     userById(userId) {
-      return this.users.find(p => p.id === userId)
+      return this.$store.state.users.find(p => p.id === userId)
     },
     savePost (data) {
       const post = {
         ...data.post,
         threadId: this.id
       }
-      this.posts.push(post)
+      this.$store.state.posts.push(post)
       this.thread.posts.push(post.id)
     }
   },

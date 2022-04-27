@@ -8,7 +8,6 @@
 
 <script>
 import ForumList from "@/components/ForumList";
-import sourceData from "@/data.json";
 
 export default {
   name: "PageCategory",
@@ -25,13 +24,13 @@ export default {
 
   computed: {
     category() {
-      return sourceData.categories.find(category => category.id === this.id)
+      return this.$store.state.categories.find(category => category.id === this.id)
     }
   },
 
   methods: {
     getForumForCategory(category) {
-      return sourceData.forums.filter(forums => forums.categoryId === category.id)
+      return this.$store.state.forums.filter(forums => forums.categoryId === category.id)
     }
   }
 
