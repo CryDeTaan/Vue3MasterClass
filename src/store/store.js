@@ -5,6 +5,7 @@ export default createStore({
     state: sourceData,
     actions: {
         createPost (context, post) {
+            post.id = 'gggg' + Math.random() // Temp
             context.commit('SET_POST', { post })
             context.commit('APPEND_POST_TO_THREAD', { postId:post.id, threadId: post.threadId })
         }
