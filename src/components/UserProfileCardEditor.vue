@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     save() {
-      console.log('saving...')
+      this.$store.dispatch('updateUser', {...this.userData})
     }
   },
 }

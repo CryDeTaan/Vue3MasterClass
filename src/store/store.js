@@ -33,6 +33,9 @@ export default createStore({
             post.id = 'gggg' + Math.random() // Temp
             context.commit('SET_POST', { post })
             context.commit('APPEND_POST_TO_THREAD', { postId:post.id, threadId: post.threadId })
+        },
+        updateUser ({ commit }, user) {
+            commit('SET_USER', { user, userId: user.id })
         }
     },
     mutations: {
@@ -42,6 +45,10 @@ export default createStore({
         APPEND_POST_TO_THREAD (state, { postId, threadId }) {
             const thread = state.threads.find(thread => thread.id === threadId)
             thread.posts.push(postId)
+        },
+        SET_USER ( state, { user, userId }) {
+            const userIndex = state.users.findIndex(user => user.id === userId)
+            state.users[userIndex] = user
         }
     }
 })
