@@ -13,7 +13,29 @@
 
     <!-- use .navbar-open to open nav -->
     <nav class="navbar">
-      <ul>
+      <ul v-if="authUser">
+        <li class="navbar-user">
+          <a href="#">
+            <img class="avatar-small"
+                 :src="authUser.avatar" :alt="`${authUser.name} profile picture`">
+            <span>
+                {{ authUser.name }}
+                <img class="icon-profile" src="../assets/img/svg/arrow-profile.svg" alt="">
+            </span>
+          </a>
+
+          <!-- dropdown menu -->
+          <!-- add class "active-drop" to show the dropdown -->
+          <div id="user-dropdown">
+            <div class="triangle-drop"></div>
+            <ul class="dropdown-menu">
+              <li class="dropdown-menu-item"><a href="profile.html">View profile</a></li>
+              <li class="dropdown-menu-item"><a href="#">Log out</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <ul v-else>
         <li class="navbar-item">
           <a href="register.html">Register</a>
         </li>
@@ -49,8 +71,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: "TheNavbar"
+  name: "TheNavbar",
+  computed: {
+    ...mapGetters(['authUser'])
+  }
 }
 </script>
 
