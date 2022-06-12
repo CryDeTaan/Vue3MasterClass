@@ -1,6 +1,7 @@
 import {createRouter, createWebHistory } from 'vue-router'
 
 import Home from "@/pages/Home";
+import Profile from "@/pages/Profile";
 import Forum from "@/pages/Forum";
 import ThreadShow from "@/pages/ThreadShow";
 import NotFound from "@/pages/NotFound";
@@ -12,6 +13,11 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/profile/',
+        name: 'Profile',
+        component: Profile
     },
     {
         path: '/category/:id',
